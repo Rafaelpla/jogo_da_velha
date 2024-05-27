@@ -16,6 +16,7 @@ public class jogo_da_velha {
         boolean jogo = true;
         boolean tentativa = true;
 
+        //Inicio do jogo
         while (jogo) {
             
 
@@ -73,14 +74,15 @@ public class jogo_da_velha {
                 System.out.println(" | ");
             }
 
-            // inicio do jogo
+            // lógica do jogo
             while (tentativa) {
                 System.out.println("Em qual linha você deseja jogar: ");
                 posicaoLinha = scInt.nextInt();
+
                 System.out.println("Em qual coluna você deseja jogar: ");
                 posicaoColuna = scInt.nextInt();
 
-                // posição disponível
+                // verificar posição disponível
                 if (velha[posicaoLinha][posicaoColuna].equals("X") || velha[posicaoLinha][posicaoColuna].equals("O")) {
                     System.out.println("Já há um elemento neste local. Perdeu a chance.");
                 } else if (iniciar == 1) {
@@ -92,14 +94,14 @@ public class jogo_da_velha {
                     iniciar++;
                     contador++;
                 }
-                // velha
+                // imprimir velha
                 for (int i = 0; i < velha.length; i++) {
                     for (int j = 0; j < velha.length; j++) {
                         System.out.print(" | " + velha[i][j]);
                     }
                     System.out.println(" | ");
                 }
-                // vencedor X
+                // se vencedor X
                 if (velha[0][0].equals("X") && velha[0][1].equals("X") && velha[0][2].equals("X")) {
                     System.out.println("Jogador vencedor: ");
                     if (nomePreferencia[0][1].equals("X")) {
@@ -165,7 +167,7 @@ public class jogo_da_velha {
                     }
                     break;
                 }
-                //vencedor O
+                // se vencedor O
                 if (velha[0][0].equals("O") && velha[0][1].equals("O") && velha[0][2].equals("O")) {
                     System.out.print("Jogador vencedor: ");
                     if (nomePreferencia[0][1].equals("O")) {
@@ -232,25 +234,27 @@ public class jogo_da_velha {
                     break;
                 }
 
-                // empate
+                // se empate
                 if (contador  > 8) {
                     System.out.println("\nVelha");
                     System.out.println("Deseja tentar denovo? (SIM ou NAO)");
                     contador = 0;
                     String novamente = sc.nextLine();
+                    // tentativa finalizada
                     if (novamente.toUpperCase().equals("NAO")) {
                         System.out.println("Tentativa finalizada!");
                         tentativa = false;
                     }else{
+                        // reiniciando velha
                         for (int i = 0; i < velha.length; i++) {
                             for (int j = 0; j < velha.length; j++) {
                                 velha[i][j] = "_";
                             }
-            
                         }
                     }
                 }
             }
+            // jogar novamente
             System.out.println("Deseja jogar novamente? (SIM ou NAO)");
             jogar_novamente = sc.nextLine();
             if (jogar_novamente.toUpperCase().equals("NAO")) {
