@@ -10,15 +10,14 @@ public class jogo_da_velha {
         Random ran = new Random();
         String jogar_novamente;
         String[][] velha = new String[3][3];
+        String[][] nomePreferencia = new String[2][2];
         int contador = 0;
         int posicaoLinha = 0, posicaoColuna = 0;
-        String[][] nomePreferencia = new String[2][2];
         boolean jogo = true;
         boolean tentativa = true;
 
-        //Inicio do jogo
+        // Inicio do jogo
         while (jogo) {
-            
 
             // nome dos jogadores
             System.out.println("Insira o nome do jogador 1: ");
@@ -55,7 +54,7 @@ public class jogo_da_velha {
                     nomePreferencia[0][1] = "O";
                     nomePreferencia[1][1] = "X";
                 }
-                }else if(iniciar == 1){
+            } else if (iniciar == 1) {
                 if (escolha.toUpperCase().equals("X")) {
                     nomePreferencia[1][1] = "X";
                     nomePreferencia[0][1] = "O";
@@ -63,10 +62,10 @@ public class jogo_da_velha {
                     nomePreferencia[1][1] = "O";
                     nomePreferencia[0][1] = "X";
                 }
-                }else{
-                    System.out.println("Escolha inválida");
-                    break;
-                }
+            } else {
+                System.out.println("Escolha inválida");
+                break;
+            }
 
             // imprimir velha
             System.out.print("    1   2   3  \n");
@@ -110,149 +109,153 @@ public class jogo_da_velha {
                     System.out.println(" | ");
                 }
                 // se vencedor X
-                if (velha[0][0].equals("X") && velha[0][1].equals("X") && velha[0][2].equals("X")) {
-                    System.out.println("\nJogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
+                if (contador > 4) {
+                    if (velha[0][0].equals("X") && velha[0][1].equals("X") && velha[0][2].equals("X")) {
+                        System.out.println("\nJogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[1][0].equals("X") && velha[1][1].equals("X") && velha[1][2].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[2][0].equals("X") && velha[2][1].equals("X") && velha[2][2].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][0].equals("X") && velha[1][0].equals("X") && velha[2][0].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][1].equals("X") && velha[1][1].equals("X") && velha[2][1].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][2].equals("X") && velha[1][2].equals("X") && velha[2][2].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][0].equals("X") && velha[1][1].equals("X") && velha[2][2].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][2].equals("X") && velha[1][1].equals("X") && velha[2][0].equals("X")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("X")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
                     }
-                    break;
-                } else if (velha[1][0].equals("X") && velha[1][1].equals("X") && velha[1][2].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[2][0].equals("X") && velha[2][1].equals("X") && velha[2][2].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][0].equals("X") && velha[1][0].equals("X") && velha[2][0].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][1].equals("X") && velha[1][1].equals("X") && velha[2][1].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][2].equals("X") && velha[1][2].equals("X") && velha[2][2].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][0].equals("X") && velha[1][1].equals("X") && velha[2][2].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][2].equals("X") && velha[1][1].equals("X") && velha[2][0].equals("X")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("X")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
                 }
-                // se vencedor O
-                if (velha[0][0].equals("O") && velha[0][1].equals("O") && velha[0][2].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
+                if (contador > 4) {
+                    // se vencedor O
+                    if (velha[0][0].equals("O") && velha[0][1].equals("O") && velha[0][2].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[1][0].equals("O") && velha[1][1].equals("O") && velha[1][2].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[2][0].equals("O") && velha[2][1].equals("O") && velha[2][2].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][0].equals("O") && velha[1][0].equals("O") && velha[2][0].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][1].equals("O") && velha[1][1].equals("O") && velha[2][1].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][2].equals("O") && velha[1][2].equals("O") && velha[2][2].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][0].equals("O") && velha[1][1].equals("O") && velha[2][2].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
+                    } else if (velha[0][2].equals("O") && velha[1][1].equals("O") && velha[2][0].equals("O")) {
+                        System.out.print("Jogador vencedor: ");
+                        if (nomePreferencia[0][1].equals("O")) {
+                            System.out.println(nomePreferencia[0][0]);
+                        } else {
+                            System.out.println(nomePreferencia[1][0]);
+                        }
+                        break;
                     }
-                    break;
-                } else if (velha[1][0].equals("O") && velha[1][1].equals("O") && velha[1][2].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[2][0].equals("O") && velha[2][1].equals("O") && velha[2][2].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][0].equals("O") && velha[1][0].equals("O") && velha[2][0].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][1].equals("O") && velha[1][1].equals("O") && velha[2][1].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][2].equals("O") && velha[1][2].equals("O") && velha[2][2].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][0].equals("O") && velha[1][1].equals("O") && velha[2][2].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
-                } else if (velha[0][2].equals("O") && velha[1][1].equals("O") && velha[2][0].equals("O")) {
-                    System.out.print("Jogador vencedor: ");
-                    if (nomePreferencia[0][1].equals("O")) {
-                        System.out.println(nomePreferencia[0][0]);
-                    } else {
-                        System.out.println(nomePreferencia[1][0]);
-                    }
-                    break;
                 }
 
                 // se empate
-                if (contador  > 8) {
+                if (contador > 8) {
                     System.out.println("\nVelha");
-                    System.out.println("\nDeseja tentar denovo? (SIM ou NAO)");
+                    System.out.println("\nDeseja tentar de novo? (SIM ou NAO)");
                     contador = 0;
                     String novamente = sc.nextLine();
                     // tentativa finalizada
                     if (novamente.toUpperCase().equals("NAO")) {
                         System.out.println("Tentativa finalizada!");
                         tentativa = false;
-                    }else{
+                    } else if (novamente.toUpperCase().equals("SIM")) {
                         // reiniciando velha e imprimindo-a
 
                         // imprimir posicao x
@@ -263,25 +266,25 @@ public class jogo_da_velha {
                             for (int j = 0; j < velha.length; j++) {
                                 velha[i][j] = "_";
                                 System.out.print(" | " + velha[i][j]);
-                                }
+                            }
                             System.out.println(" | ");
                         }
                     }
                 }
             }
             // jogar novamente
-            System.out.println("\nDeseja jogar novamente? (SIM ou NAO)");
+            System.out.println("\nDeseja jogar novamente contra outro jogador? (SIM ou NAO)");
             jogar_novamente = sc.nextLine();
             if (jogar_novamente.toUpperCase().equals("NAO")) {
                 System.out.println("Obrigado por jogar!");
                 jogo = false;
-            }else if(jogar_novamente.toUpperCase().equals("SIM")){
+            } else if (jogar_novamente.toUpperCase().equals("SIM")) {
                 contador = 0;
                 tentativa = true;
-            }else{
+            } else {
                 System.out.println("Resposta Inváida");
-                jogo=false;
-                tentativa=false;
+                jogo = false;
+                tentativa = false;
             }
         }
     }
